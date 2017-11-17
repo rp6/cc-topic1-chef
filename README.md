@@ -1,1 +1,4 @@
-# cc-topic1-chef
+# first_cookbook
+
+TODO: Enter the cookbook description here.
+
