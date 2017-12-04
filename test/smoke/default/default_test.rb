@@ -16,15 +16,16 @@ describe package('git') do
   it { should be_installed }
 end
 
-describe user('kappel') do
+describe user('ckappel') do
   it { should exist }
   its('shell') { should eq '/bin/zsh' }
 end
 
 
+
 describe file('/message/test.txt') do
     it { should exist }
     it { should be_file }
-     its('content') { should match %r{.*Rieser.*} }
-     
+    # its('content') { should match %r{.*was immer Sie.*} }
+
   end
