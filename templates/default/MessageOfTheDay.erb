@@ -1,6 +1,6 @@
 
 Group <%= @groupID%>
-Members <%= @members.each { |x| puts x }  %>
-Lecturer <%= @lecturer.each { |y| puts y} %>
+Members <%= @members.each { |x| puts x }%>
+Lecturer <%= @lecturer_firstname%>/<%= @lecturer_surename%>
 <%= @changeMe %>
-<%= Time.now.strftime("%d/%m/%Y") %>
+<%= Time.now.strftime("%d.%m.%Y") %>
