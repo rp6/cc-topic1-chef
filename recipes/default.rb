@@ -19,7 +19,7 @@ package "sudo"
 
 
 #CONFIGURE APACHE
-node.default['apache']['listen'] = ['*:8080','*:8443']
+node.default['apache']['listen_port'] = ['8080','8443', '80']
 
 
 directory '/message' do
@@ -110,4 +110,22 @@ template '/var/www/httpd/index.html' do
     members: node.default["members"],
     changeMe: node.default["MessageOfTheDay"]
   )
+end
+#
+template '/etc/apache2/apache2.conf' do
+  source 'apache2.conf.erb'
+  variables(
+    Ports: node.default["Ports"],
+    ServerRoot: node.default["ServerRoot"]
+  )
+end
+template '/etc/apache2/ports.conf' do
+  source 'ports.conf.erb'
+  variables(
+    Ports: node.default["Ports"],
+    ServerRoot: node.default["ServerRoot"]
+  )
+end
+service "apache2" do
+  action :start
 end
